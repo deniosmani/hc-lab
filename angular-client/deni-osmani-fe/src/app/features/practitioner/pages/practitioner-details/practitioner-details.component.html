@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+<div class="container">
+    <div class="team-single">
+        <div class="row">
+            <div class="col-lg-4 col-md-5 xs-margin-30px-bottom avatar">
+                <div class="team-single-img">
+                  <img *ngIf="practitioner?.gender?.value==='male'" src="https://cdn-icons-png.flaticon.com/512/194/194927.png" alt="">
+                  <img *ngIf="practitioner?.gender?.value==='female'" src="https://cdn-icons-png.flaticon.com/512/194/194916.png" alt="">
+                  <img *ngIf="practitioner?.gender?.value==='unknown' || practitioner?.gender?.value==='other' || !practitioner?.gender" src="https://flyclipart.com/thumb2/blue-question-mark-icon-207601.png" alt="">
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 col-md-7">
+                <div class="team-single-text padding-50px-left sm-no-padding-left">
+                    <h4 class="font-size38 sm-font-size32 xs-font-size30">{{practitioner?.name+' '+practitioner?.surname}}</h4>
+                    <p class="no-margin-bottom">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum voluptatem.</p>
+                    <div class="contact-info-section margin-40px-tb">
+                        <ul class="list-style9 no-margin">
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                       <i class="fas fa-calendar-alt text-blue"></i>
+                                        <strong class="margin-10px-left text-blue">Date of birth:</strong>
+                                    </div>
+                                   <div class="col-md-7 col-7">
+                                       <p>{{practitioner?.birthDay}}</p>
+                                   </div>
+                                </div>
+
+                           </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-graduation-cap text-red"></i>
+                                        <strong class="margin-10px-left text-red">Qualification:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{practitioner?.qualification?.value}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="far fa-gem text-blue"></i>
+                                        <strong class="margin-10px-left text-blue">Organization:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p *ngIf="practitioner?.organization">{{practitioner?.organization?.name}}</p>
+                                        <p *ngIf="!practitioner?.organization">Unassigned</p>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-map-marker-alt text-red"></i>
+                                        <strong class="margin-10px-left text-red">Address:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{practitioner?.address}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-mobile-alt text-blue"></i>
+                                        <strong class="margin-10px-left xs-margin-four-left text-blue">Phone:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{practitioner?.phone}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-envelope text-red"></i>
+                                        <strong class="margin-10px-left xs-margin-four-left text-red">Email:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{practitioner?.email}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+</div>

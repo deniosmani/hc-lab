@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<div class="container margin">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="project-info-box mt-0">
+                <h1>{{organization?.name}}</h1>
+                <p class="mb-0">Vivamus pellentesque, felis in aliquam ullamcorper, lorem tortor porttitor erat, hendrerit porta nunc tellus eu lectus. Ut vel imperdiet est. Pellentesque condimentum, dui et blandit laoreet, quam nisi tincidunt tortor.</p>
+            </div>
+            <div class="project-info-box">
+                <p><b>Name:</b>{{organization?.name}}</p>
+                <p><b>Address:</b>{{organization?.address}}</p>
+                <p><b>Phone:</b>{{organization?.phone}}</p>
+                <p><b>Email:</b>{{organization?.email}}</p>
+                <p><b>Type:</b> {{organization?.organizationType?.value}}</p>
+                <p><b>Number of practitioners:</b> {{numberOfPract}}</p>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-6">
+            <img src="https://cdn-icons-png.flaticon.com/512/504/504276.png?w=360" alt="" >
+        </div>
+    </div>
+</div>

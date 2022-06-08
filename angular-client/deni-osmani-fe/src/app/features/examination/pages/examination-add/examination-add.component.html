@@ -1,0 +1,101 @@
+<form  [formGroup]="examinationForm"  *ngIf="examinationForm">
+  <div class="mx-auto col-lg-6 col-md-8 mt-3 p-4 border border-primary rounded" >
+    <h2>Save examination</h2>
+
+
+    <div class="d-flex flex-column">
+      <label for="name" >Diagnosis</label>
+      <input type="text" id="name"  class="form-control" formControlName="diagnosis" >
+    </div>
+    <div class="d-flex flex-column">
+      <label for="startDate" >Date of start</label>
+      <div class="d-flex flex-row">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="startDate" formControlName="startDate" ngbDatepicker #d="ngbDatepicker"  >
+      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+    </div>
+    </div>
+    <div class="d-flex flex-column">
+
+      <label for="endDate" >Date of end</label>
+      <div class="d-flex flex-row">
+      <input class="form-control" placeholder="yyyy-mm-dd"
+             name="endDate" formControlName="endDate" ngbDatepicker #m="ngbDatepicker" >
+      <button class="btn btn-outline-secondary calendar" (click)="m.toggle()" type="button"></button>
+    </div>
+    </div>
+    <label for="organization">*Organization</label>
+    <select type="text" id="organization" (change)="organizationSelected($event)" class="form-select" formControlName="organization"  >
+
+      <option *ngFor="let organization of organizations"  [ngValue]="organization" >
+        {{organization.name}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('organization')">
+      <span *ngIf="hasErrors('organization','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+    <div class="d-flex flex-column"  *ngIf="isOrganizationSelected">
+    <label for="practitioners">Practitioners</label>
+    <ng-multiselect-dropdown
+    [settings]="dropdownSettings"
+    [data]="dropdownList"
+    formControlName="practitioners"
+    name="practitioners"
+  >
+  </ng-multiselect-dropdown>
+</div>
+
+    <label for="serviceType">*Service type</label>
+    <select type="text" id="serviceType" class="form-select" formControlName="serviceTypeDto"  >
+
+      <option *ngFor="let serviceTypeDto of serviceTypes" [ngValue]="serviceTypeDto" >
+        {{serviceTypeDto.value}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('serviceTypeDto')">
+      <span *ngIf="hasErrors('serviceTypeDto','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+    <label for="priority">Priority</label>
+    <select type="text" id="priority" class="form-select" formControlName="priority"  >
+
+      <option *ngFor="let priority of priorities" [ngValue]="priority" >
+        {{priority.value}}
+      </option>
+    </select>
+    <label for="status">*Status</label>
+    <select type="text" id="status" class="form-select" formControlName="status"  >
+
+      <option *ngFor="let status of statuses" [ngValue]="status" >
+        {{status.value}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('status')">
+      <span *ngIf="hasErrors('status','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+    <label for="patient">*Patient</label>
+    <select type="text" id="patient" class="form-select" formControlName="patient"  >
+
+      <option *ngFor="let patient of patients"  [ngValue]="patient" >
+        {{patient?.name + ' ' + patient?.surname}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('patient')">
+      <span *ngIf="hasErrors('patient','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+    <div class="d-flex flex-row-reverse mt-2">
+      <button class="btn btn-outline-danger" (click)="onCancel()">Cancel</button>
+      <button class="btn btn-outline-primary" [disabled]="examinationForm.invalid" (click)="save()">Save</button>
+
+    </div>
+  </div>
+
+
+</form>

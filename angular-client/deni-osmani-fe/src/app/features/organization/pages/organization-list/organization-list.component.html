@@ -1,0 +1,68 @@
+<div class="d-flex flex-row justify-content-between align-items-center ">
+  <div><h1>List of organization</h1></div>
+  <div class="d-flex flex-row justify-content-center align-items-center" id="margin">
+    <form  [formGroup]="searchForm" *ngIf="searchForm">
+    <div class="d-flex flex-row justify-content-center align-items-center">
+
+      <div><input id="search" class="form-control" placeholder="Search by name" type="text" formControlName="search"></div>
+      <div><bi name="search" id="search-bi" (click)="filter()"></bi></div>
+    </div>
+    </form>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th sortable="name" (sort)="onSort($event)" scope="col">Name</th>
+    <th sortable="address" (sort)="onSort($event)" scope="col">Address</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Email</th>
+    <th sortable="type" (sort)="onSort($event)"  scope="col">Organization type</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let organization of organizations; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ organization.name }}
+    </td>
+    <td>
+      {{ organization.address }}
+    </td>
+    <td>
+      {{ organization.phone }}
+    </td>
+    <td>
+      {{ organization.email }}
+    </td>
+    <td>
+      {{ organization.organizationType?.value }}
+    </td>
+    <td>
+      <div class="d-flex flex-row">
+      <bi name="card-text" (click)="onDetails(organization)" class="big "></bi>
+
+      <bi name="pencil" (click)="onEdit(organization)" class="big "></bi>
+      <bi name="trash" (click)="onDelete(organization)" class="big fill-red"></bi>
+    </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button class="btn btn-outline-primary  margin-left" (click)="addOrganization()"><div class="d-flex flex-row justify-content-start align-items-center"><div><bi name="plus" class="small-icon"></bi></div><div>Add new</div></div></button>
+<div class="d-flex flex-column justify-content-center align-items-center ">
+  <div class="d-flex flex-row mb-2">
+    <div>Items per page:</div>
+    <div>
+  <select class="form-select form-select-sm small mx-2" (change)="onPageSizeChange()" [(ngModel)]="pageSize" >
+    <option *ngFor="let size of availablePageSize" [ngValue]="size" name="pageSize">{{size}}</option>
+  </select></div>
+  </div>
+  <ngb-pagination [collectionSize]="totalItems" [(page)]="currentPage" (pageChange)="onPageChange($event)" [pageSize]="pageSize" [boundaryLinks]="true" ></ngb-pagination>
+</div>
+
+
+

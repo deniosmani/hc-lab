@@ -1,0 +1,24 @@
+#margin{
+  margin-right: 5px;
+}
+
+#search-bi{
+  height: 30px;
+  margin-left: 4px;
+  margin-right: 2px;
+}
+.big {
+  height: 30px;
+  width: 50px;
+  cursor: pointer;
+}
+.small-icon{
+  height:30px;
+  width:30px;
+}
+.fill-red {
+  color : red;
+}
+.margin-left{
+  margin-left: 5px;
+}

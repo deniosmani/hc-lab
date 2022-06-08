@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+<div class="container mx-auto">
+    <div class="team-single ">
+        <div class="row d-flex justify-content-center center-screen">
+
+
+            <div class="col-lg-8 col-md-7 ">
+                <div class="team-single-text padding-50px-left sm-no-padding-left">
+
+                    <div class="contact-info-section margin-40px-tb ">
+                        <ul class="list-style9 no-margin">
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                       <i class="fas fa-calendar-alt text-blue"></i>
+                                        <strong class="margin-10px-left text-blue">Duration:</strong>
+                                    </div>
+                                   <div class="col-md-7 col-7">
+                                       <p>{{examination?.startDate}} to {{examination?.endDate}}</p>
+                                   </div>
+                                </div>
+
+                           </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+
+                                        <strong class="margin-10px-left text-red">Service type:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{examination?.serviceTypeDto?.value}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+
+                                        <strong class="margin-10px-left text-blue">Organization:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+
+                                        <p >{{examination?.organization?.name}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+
+                                        <strong class="margin-10px-left text-red">Diagnosis:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{examination?.diagnosis}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+
+                                        <strong class="margin-10px-left xs-margin-four-left text-blue">Priority:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{examination?.priority?.value}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+
+                                        <strong class="margin-10px-left xs-margin-four-left text-red">Status:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{examination?.status?.value}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+
+                              <div class="row">
+                                  <div class="col-md-5 col-5">
+
+                                      <strong class="margin-10px-left xs-margin-four-left text-blue">Patient:</strong>
+                                  </div>
+                                  <div class="col-md-7 col-7">
+                                      <p>{{examination?.patient?.name}} {{examination?.patient?.surname}}</p>
+                                  </div>
+                              </div>
+
+                          </li>
+                          <li>
+                              <div class="row">
+                                  <div class="col-md-5 col-5">
+
+                                      <strong class="margin-10px-left xs-margin-four-left text-red">List of practitioners:</strong>
+                                  </div>
+                                  <div class="col-md-7 col-7">
+                                    <ul>
+                                      <li *ngFor="let pract of examination?.practitioners">
+                                        {{pract?.name}} {{pract?.surname}}
+                                      </li>
+                                    </ul>
+                                  </div>
+                              </div>
+                          </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+</div>
+

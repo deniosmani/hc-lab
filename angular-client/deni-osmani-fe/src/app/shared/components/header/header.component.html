@@ -1,0 +1,23 @@
+<ul ngbNav #nav="ngbNav" class="nav-tabs flex-no-wrap justify-content-between ">
+  <li class="flex-grow-1 flex-shrink-1 justify-content-start  ">
+    <img src="/assets/hospital-sign-cross-logo-vector-20061329.jpg" class="ml-2 pl-2" height="45px" routerLink="/home"  >
+  </li>
+  <li ngbNavItem   >
+    <a ngbNavLink routerLink="/organization/organization-list" >Organizations</a>
+  </li>
+  <li ngbNavItem   >
+    <a ngbNavLink routerLink="/practitioner/practitioner-list">Practitioners</a>
+  </li>
+  <li ngbNavItem   >
+    <a ngbNavLink routerLink="/patient/patient-list" >Patients</a>
+  </li>
+  <li ngbNavItem   >
+    <a ngbNavLink routerLink="/examination/examination-list">Examinations</a>
+  </li>
+  <li ngbNavItem   >
+    <a ngbNavLink (click)="logout()">Logout</a>
+  </li>
+
+
+</ul>
+<div [ngbNavOutlet]="nav"></div>

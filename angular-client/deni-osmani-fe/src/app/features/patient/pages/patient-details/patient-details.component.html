@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+<div class="container">
+    <div class="team-single">
+        <div class="row">
+            <div class="col-lg-4 col-md-5 xs-margin-30px-bottom avatar">
+                <div class="team-single-img">
+                  <img *ngIf="patient?.gender?.value==='male'" src="https://cdn-icons.flaticon.com/png/512/4140/premium/4140039.png?token=exp=1654085943~hmac=7b5fc4e6c520faccb537f7591741a262" alt="">
+                  <img *ngIf="patient?.gender?.value==='female'" src="https://cdn-icons.flaticon.com/png/512/4140/premium/4140062.png?token=exp=1654085961~hmac=bfd28bcf31a0e45081885152a1a4f336" alt="">
+                  <img *ngIf="patient?.gender?.value==='unknown' || patient?.gender?.value==='other' || !patient?.gender" src="https://flyclipart.com/thumb2/blue-question-mark-icon-207601.png" alt="">
+                </div>
+
+            </div>
+
+            <div class="col-lg-8 col-md-7">
+                <div class="team-single-text padding-50px-left sm-no-padding-left">
+                    <h4 class="font-size38 sm-font-size32 xs-font-size30">{{patient?.name+' '+patient?.surname}}</h4>
+                    <p class="no-margin-bottom">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum voluptatem. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="contact-info-section margin-40px-tb">
+                        <ul class="list-style9 no-margin">
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                       <i class="fas fa-calendar-alt text-blue"></i>
+                                        <strong class="margin-10px-left text-blue">Date of birth:</strong>
+                                    </div>
+                                   <div class="col-md-7 col-7">
+                                       <p>{{patient?.birthDate}}</p>
+                                   </div>
+                                </div>
+
+                           </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-graduation-cap text-red"></i>
+                                        <strong class="margin-10px-left text-red">Primary care provider:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{patient?.primaryCareProvider?.name+' '+patient?.primaryCareProvider?.surname}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="far fa-gem text-blue"></i>
+                                        <strong class="margin-10px-left text-blue">Custodian:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p *ngIf="patient?.organization">{{patient?.organization?.name}}</p>
+                                        <p *ngIf="!patient?.organization">Patient does not have custodian</p>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-map-marker-alt text-red"></i>
+                                        <strong class="margin-10px-left text-red">Address:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{patient?.address}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-mobile-alt text-blue"></i>
+                                        <strong class="margin-10px-left xs-margin-four-left text-blue">Phone:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{patient?.phone}}</p>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="row">
+                                    <div class="col-md-5 col-5">
+                                        <i class="fas fa-envelope text-red"></i>
+                                        <strong class="margin-10px-left xs-margin-four-left text-red">Email:</strong>
+                                    </div>
+                                    <div class="col-md-7 col-7">
+                                        <p>{{patient?.email}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="alert alert-danger " *ngIf="patient?.deceased">
+                <span  >
+                  <small>Unfortunately, this patient is deceased.</small>
+                </span>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

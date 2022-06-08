@@ -1,0 +1,86 @@
+<form  [formGroup]="examinationForm"  *ngIf="examinationForm">
+  <div class="mx-auto col-lg-6 col-md-8 mt-3 p-4 border border-primary rounded" >
+    <h2>Update examination</h2>
+
+
+    <div class="d-flex flex-column">
+      <label for="name" >Diagnosis</label>
+      <input type="text" id="name"  class="form-control" formControlName="diagnosis" >
+    </div>
+    <div class="d-flex flex-column">
+      <label for="startDate" >Start date</label>
+      <input type="date" id="startDate"  class="form-control" formControlName="startDate" >
+    </div>
+    <div class="d-flex flex-column">
+      <label for="birthDate" >End date</label>
+      <input type="date" id="endDate"  class="form-control" formControlName="endDate" >
+    </div>
+
+    <label for="serviceType">Service type</label>
+    <select type="text" id="serviceType" class="form-select" formControlName="serviceTypeDto"  >
+
+      <option *ngFor="let serviceTypeDto of serviceTypes" [ngValue]="serviceTypeDto.value" >
+        {{serviceTypeDto.value}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('serviceTypeDto')">
+      <span *ngIf="hasErrors('serviceTypeDto','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+    <label for="priority">Priority</label>
+    <select type="text" id="priority" class="form-select" formControlName="priority"  >
+
+      <option *ngFor="let priority of priorities" [ngValue]="priority.value" >
+        {{priority.value}}
+      </option>
+    </select>
+    <label for="status">Status</label>
+    <select type="text" id="status" class="form-select" formControlName="status"  >
+
+      <option *ngFor="let status of statuses" [ngValue]="status.value" >
+        {{status.value}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('status')">
+      <span *ngIf="hasErrors('status','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+
+    <label for="organization">Organization</label>
+    <select type="text" id="organization" (change)="organizationSelected($event)" [compareWith]="compareByOrgID" class="form-select" formControlName="organization"  >
+
+      <option *ngFor="let organization of organizations"  [ngValue]="organization" >
+        {{organization.name}}
+      </option>
+    </select>
+    <div class="alert alert-danger" *ngIf="hasErrors('organization')">
+      <span *ngIf="hasErrors('organization','required')" >
+        <small>This field is required</small>
+      </span>
+    </div>
+    <label for="practitioners">Practitioners</label>
+    <ng-multiselect-dropdown
+    [settings]="dropdownSettings"
+    [data]="dropdownList"
+    formControlName="practitioners"
+    name="practitioners"
+  >
+  </ng-multiselect-dropdown>
+   <!-- <label for="practitioner" *ngIf="isOrganizationSelected">Practitioner</label>
+    <select *ngIf="isOrganizationSelected" type="text" id="practitioner" class="form-select" formControlName="primaryCareProvider"  >
+
+      <option *ngFor="let practitioner of practitioners" [ngValue]="practitioner" >
+        {{practitioner.name}}
+      </option>
+    </select>
+  -->
+    <div class="d-flex flex-row-reverse mt-2">
+      <button class="btn btn-outline-danger" (click)="onCancel()">Cancel</button>
+      <button class="btn btn-outline-primary" [disabled]="examinationForm.invalid" (click)="update()">Update</button>
+    </div>
+  </div>
+
+
+</form>
